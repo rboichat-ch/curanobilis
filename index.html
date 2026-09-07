@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Curanobilis — médecine privée à domicile en Suisse : consultations, soins infirmiers, coordination des spécialistes et prise en charge des cas complexes.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A111A" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Curanobilis">
+<meta property="og:description" content="Curanobilis — médecine privée à domicile en Suisse : consultations, soins infirmiers, coordination des spécialistes et prise en charge des cas complexes.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CH">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='none' stroke='%23B49452' stroke-width='2'/%3E%3Cg stroke='%23B49452' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M24 11v8'/%3E%3Cpath d='M24 29v8'/%3E%3Cpath d='M11 24h8'/%3E%3Cpath d='M29 24h8'/%3E%3C/g%3E%3C/svg%3E">
+<title>Curanobilis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Franklin:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --ground:#FAFAF8; --surface:#FFFFFF; --raise:#FFFFFF; --tint:#EEF1F4; --tint-2:#E3E8ED;
+  --ink:#101B2A; --ink-2:#465362; --ink-3:#66717E;
+  --line:#E3E6EA; --line-soft:#EDEFF2; --hair:#C7CED6;
+  --gold-ink:#8A6D33; --gold:#A9873F; --gold-soft:#DCC9A0;
+  --band:#0E1B2B; --band-ink:#F3F5F7; --band-ink-2:#A3B2C2; --band-line:#25364A; --band-gold:#C9A961;
+  --shadow-s:0 1px 2px rgba(16,27,42,.05);
+  --shadow:0 1px 3px rgba(16,27,42,.05), 0 16px 40px -28px rgba(16,27,42,.35);
+  --shadow-l:0 2px 6px rgba(16,27,42,.06), 0 36px 72px -44px rgba(16,27,42,.45);
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --pad:clamp(22px,5.5vw,72px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0A111A; --surface:#0F1926; --raise:#121F2E; --tint:#131F2C; --tint-2:#182636;
+    --ink:#EDF1F5; --ink-2:#AAB7C4; --ink-3:#7B8794;
+    --line:#1E2B39; --line-soft:#182432; --hair:#2A3949;
+    --gold-ink:#D6BB84; --gold:#BFA067; --gold-soft:#6E5C33;
+    --band:#060C13; --band-line:#22344A;
+    --shadow-s:0 1px 2px rgba(0,0,0,.5);
+    --shadow:0 2px 6px rgba(0,0,0,.5), 0 20px 48px -30px rgba(0,0,0,.95);
+    --shadow-l:0 3px 8px rgba(0,0,0,.55), 0 40px 80px -48px rgba(0,0,0,1);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0A111A; --surface:#0F1926; --raise:#121F2E; --tint:#131F2C; --tint-2:#182636;
+  --ink:#EDF1F5; --ink-2:#AAB7C4; --ink-3:#7B8794;
+  --line:#1E2B39; --line-soft:#182432; --hair:#2A3949;
+  --gold-ink:#D6BB84; --gold:#BFA067; --gold-soft:#6E5C33;
+  --band:#060C13; --band-line:#22344A;
+  --shadow-s:0 1px 2px rgba(0,0,0,.5);
+  --shadow:0 2px 6px rgba(0,0,0,.5), 0 20px 48px -30px rgba(0,0,0,.95);
+  --shadow-l:0 3px 8px rgba(0,0,0,.55), 0 40px 80px -48px rgba(0,0,0,1);
+}
+*{box-sizing:border-box}
+img{max-width:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.004em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1210px;margin:0 auto;padding-inline:var(--pad)}
+.eyebrow{font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-ink)}
+.emblem{width:27px;height:27px;color:var(--gold);flex:none}
+
+/* ---------- masthead ---------- */
+.mast{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 94%,transparent);backdrop-filter:blur(12px) saturate(115%);border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;align-items:center;gap:26px;height:76px}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+.mark{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap;line-height:1;color:var(--ink)}
+.mark span{color:inherit}
+.mast nav{display:flex;gap:34px;margin-left:auto;font-size:14px;font-weight:400}
+.mast nav a{text-decoration:none;color:var(--ink-2);padding-block:6px;position:relative;transition:color .25s}
+.mast nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--gold);transition:right .3s cubic-bezier(.22,.61,.36,1)}
+.mast nav a:hover{color:var(--ink)}
+.mast nav a:hover::after{right:0}
+.tools{display:flex;align-items:center;gap:20px;margin-left:auto}
+.mast nav+.tools{margin-left:0}
+.langsw{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.langsw button{font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.14em;padding:7px 11px;background:transparent;color:var(--ink-3);border:0;cursor:pointer;transition:background .25s,color .25s}
+.langsw button:hover{color:var(--ink)}
+.langsw button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.tel{font-size:14.5px;font-weight:500;text-decoration:none;color:var(--ink);white-space:nowrap;font-variant-numeric:tabular-nums;border-bottom:1.5px solid var(--gold);padding-bottom:3px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-top:clamp(54px,7.5vw,104px);padding-bottom:clamp(52px,7vw,96px);background:var(--surface);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.32fr .85fr;gap:clamp(36px,6vw,80px);align-items:end}
+.hero .eyebrow{display:flex;align-items:center;gap:14px}
+.hero .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--gold);flex:none}
+.hero h1{font-size:clamp(44px,7vw,82px);line-height:1.03;margin:24px 0 0;letter-spacing:-.02em;font-weight:400}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--gold-ink)}
+.lede{font-size:clamp(17px,1.35vw,19px);color:var(--ink-2);max-width:54ch;margin-top:26px;line-height:1.68}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 30px;border-radius:2px;text-decoration:none;border:1px solid var(--ink);background:var(--ink);color:var(--surface);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--hair);padding-inline:26px}
+.btn.ghost:hover{border-color:var(--ink);background:transparent}
+.fiche{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--ink);border-radius:2px;padding:32px 30px 26px;box-shadow:var(--shadow)}
+.fiche dl{margin:0;display:grid;gap:18px}
+.fiche div{display:grid;gap:5px;padding-bottom:18px;border-bottom:1px solid var(--line-soft)}
+.fiche div:last-of-type{border-bottom:0;padding-bottom:0}
+.fiche dt{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+.fiche dd{margin:0;font-family:var(--serif);font-size:21px;font-weight:400;line-height:1.25;color:var(--ink);font-variant-numeric:tabular-nums}
+.urgence{margin-top:26px;padding:15px 17px;border-radius:2px;background:var(--tint);border-left:3px solid var(--gold);font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.urgence b{font-weight:600;color:var(--ink)}
+
+/* ---------- credentials strip ---------- */
+.strip{border-bottom:1px solid var(--line);background:var(--ground)}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:12px 48px;padding-block:20px;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
+.strip span{display:flex;align-items:center;gap:11px}
+.strip span::before{content:"";width:5px;height:5px;background:var(--gold);transform:rotate(45deg);flex:none}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(68px,8.5vw,124px)}
+.sec-grid{display:grid;grid-template-columns:180px minmax(0,1fr);gap:clamp(30px,5vw,72px)}
+.sec-head h2{font-size:clamp(30px,3.8vw,48px);line-height:1.1;margin-top:16px;letter-spacing:-.018em}
+.sec-head p{color:var(--ink-2);margin-top:20px;max-width:58ch}
+.rail{position:sticky;top:104px;align-self:start}
+.rail .num{font-family:var(--serif);font-style:italic;font-weight:400;font-size:21px;color:var(--gold-ink);line-height:1}
+.rail .cap{font-size:13.5px;color:var(--ink-3);margin-top:14px;line-height:1.55;max-width:26ch}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(32px,5vw,68px);row-gap:0;margin-top:44px}
+.svc{padding:30px 0 34px;border-top:1px solid var(--line);display:grid;gap:11px;align-content:start}
+.svc h3{font-size:24px;line-height:1.22;font-weight:500}
+.svc p{font-size:15.5px;color:var(--ink-2);max-width:44ch}
+.svc .tag{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+
+/* parcours */
+.steps{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:26px;padding:32px 0;border-top:1px solid var(--line)}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps .idx{font-family:var(--serif);font-weight:400;font-size:26px;color:var(--gold-ink);line-height:1;padding-top:4px;font-variant-numeric:tabular-nums}
+.steps h3{font-size:26px;line-height:1.2;font-weight:500}
+.steps p{color:var(--ink-2);font-size:15.5px;margin-top:10px;max-width:60ch}
+.steps .meta{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2);margin-top:14px}
+
+/* dark band */
+.band{background:var(--band);color:var(--band-ink)}
+.band h2,.band h3{color:var(--band-ink)}
+.band .eyebrow{color:var(--band-gold)}
+.band p{color:var(--band-ink-2)}
+.band .rail .cap{color:var(--band-ink-2)}
+.band .rail .num{color:var(--band-gold)}
+.cases{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;padding:0}
+.cases li{list-style:none;font-size:13px;font-weight:400;letter-spacing:.03em;padding:9px 17px;border:1px solid var(--band-line);color:var(--band-ink);border-radius:2px;transition:border-color .25s}
+.cases li:hover{border-color:var(--band-gold)}
+.repondant{margin-top:44px;border-top:1px solid var(--band-line);padding-top:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+.repondant h3{font-size:25px;font-weight:500;margin-bottom:14px}
+
+/* équipe */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px clamp(32px,5vw,68px);margin-top:44px}
+.team div{border-top:1px solid var(--line);padding-top:22px}
+.team h3{font-size:23px;font-weight:500}
+.team p{font-size:15.5px;color:var(--ink-2);margin-top:10px}
+
+/* formules */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px}
+.plan{border:1px solid var(--line);background:var(--surface);border-radius:2px;padding:32px 28px 34px;display:grid;align-content:start;gap:14px;transition:box-shadow .3s,border-color .3s}
+.plan:hover{box-shadow:var(--shadow);border-color:var(--hair)}
+.plan.feature{border-top:3px solid var(--gold);box-shadow:var(--shadow)}
+.plan h3{font-size:25px;line-height:1.15;font-weight:500}
+.plan p{font-size:15.5px;color:var(--ink-2)}
+.plan .price{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-ink)}
+.note{margin-top:34px;font-size:15px;color:var(--ink-2);max-width:68ch;padding-left:20px;border-left:2px solid var(--gold-soft)}
+
+/* confidentialité */
+.privacy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px clamp(30px,4vw,56px);margin-top:44px}
+.privacy div{border-top:1px solid var(--line);padding-top:22px}
+.privacy h3{font-size:21px;font-weight:500;margin-bottom:10px}
+.privacy p{font-size:15.5px;color:var(--ink-2)}
+
+/* contact */
+/* La réserve sous WhatsApp : elle doit se lire, pas s'imposer. Même gris que
+   les intitulés, un cran plus petit que la valeur qu'elle accompagne. */
+.coords .note{display:block;margin-top:4px;font-size:.82rem;line-height:1.4;opacity:.72}
+.soft{background:var(--tint);border-block:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-top:42px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:34px 32px;box-shadow:var(--shadow)}
+form{display:grid;gap:20px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+label{display:grid;gap:8px;font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+input,textarea{font-family:var(--sans);font-weight:400;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:12px 13px;width:100%;transition:border-color .25s,box-shadow .25s}
+input:hover,textarea:hover{border-color:var(--hair)}
+input:focus,textarea:focus{outline:0;border-color:var(--ink);box-shadow:0 0 0 3px var(--tint-2)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+textarea{min-height:110px;resize:vertical;line-height:1.55}
+.consent{font-size:12.5px;font-weight:400;color:var(--ink-3);text-transform:none;letter-spacing:0;line-height:1.55}
+.sent{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:2px;padding:32px 30px;font-size:15.5px;color:var(--ink-2);box-shadow:var(--shadow)}
+.sent b{font-family:var(--serif);font-weight:500;font-size:26px;color:var(--ink);display:block;margin-bottom:10px;line-height:1.2}
+.coords{background:transparent;border:1px solid var(--hair);border-radius:2px;padding:32px 30px;display:grid;gap:24px;align-content:start}
+.coords div{display:grid;gap:6px}
+.coords .k{font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-2)}
+.coords .v{font-family:var(--serif);font-size:21px;font-weight:400;line-height:1.35;font-variant-numeric:tabular-nums;color:var(--ink)}
+.coords a{text-decoration:none;border-bottom:1.5px solid var(--gold);transition:color .25s}
+.coords a:hover{color:var(--gold-ink)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:52px;background:var(--ground)}
+.foot{display:grid;grid-template-columns:1.1fr 1fr .8fr;gap:32px clamp(30px,5vw,60px);align-items:start}
+.foot p{font-size:13.5px;font-weight:400;color:var(--ink-2);line-height:1.6}
+.foot .brand{margin-bottom:14px}
+.foot .mark{font-size:18px}
+.foot .emblem{width:30px;height:30px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (max-width:960px){
+  .hero-grid,.contact-grid,.repondant,.foot{grid-template-columns:1fr}
+  .sec-grid{grid-template-columns:1fr;gap:26px}
+  .rail{position:static;display:flex;align-items:baseline;gap:16px}
+  .rail .cap{margin-top:0;max-width:46ch}
+  .services,.team,.plans,.privacy{grid-template-columns:1fr}
+  .mast nav{display:none}
+  .mast .wrap{gap:16px;height:70px}
+}
+@media (max-width:540px){
+  .f2{grid-template-columns:1fr}
+  .tel{display:none}
+  .steps li{grid-template-columns:1fr;gap:8px}
+  .fiche{padding:26px 22px 22px}
+}
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <a class="brand" href="#top"><svg class="emblem" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.25" fill="none" stroke="currentColor" stroke-width=".7" opacity=".5"/><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"><path d="M24 11.5v7.5"/><path d="M24 29v7.5"/><path d="M11.5 24h7.5"/><path d="M29 24h7.5"/></g></svg><span class="mark">Cura<span>nobilis</span></span></a>
+    <nav>
+      <a href="#prestations" data-en="Services">Prestations</a>
+      <a href="#complexes" data-en="Complex cases">Cas complexes</a>
+      <a href="#parcours" data-en="How it works">Parcours</a>
+      <a href="#contact" data-en="Contact">Contact</a>
+    </nav>
+    <div class="tools">
+      <a class="tel" href="tel:+41220000000">+41 22 000 00 00</a>
+      <div class="langsw" role="group" aria-label="Langue / Language">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow" data-en="Private medicine at home — Switzerland">Médecine privée à domicile — Suisse</p>
+      <h1 data-en="Your doctor.<br>At <em>your</em> home.">Votre médecin.<br>Chez <em>vous</em>.</h1>
+      <p class="lede" data-en="Curanobilis organises complete medical care where you live: consultations, nursing, coordination of specialists and the follow-up of complex cases. One responsible physician, one named team, one direct line — for as long as the situation requires.">Curanobilis organise la prise en charge médicale complète là où vous vivez : consultations, soins infirmiers, coordination des spécialistes et suivi des cas complexes. Un médecin répondant, une équipe nommée, une ligne directe — aussi longtemps que la situation l’exige.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact" data-en="Request a first conversation">Demander un entretien</a>
+        <a class="btn ghost" href="#parcours" data-en="How we work">Comment nous travaillons</a>
+      </div>
+    </div>
+    <aside class="fiche">
+      <dl>
+        <div><dt data-en="Medical line">Ligne médicale</dt><dd data-en="24 h a day, 7 days a week">24 h sur 24, 7 j sur 7</dd></div>
+        <div><dt data-en="Response time">Délai d’intervention</dt><dd data-en="90 minutes — Lake Geneva region">90 minutes — arc lémanique</dd></div>
+        <div><dt data-en="Physicians">Médecins</dt><dd data-en="FMH, listed in the MedReg register">FMH, inscrits au registre MedReg</dd></div>
+        <div><dt data-en="Coverage">Zones desservies</dt><dd>Genève · Vaud · Valais · Zürich</dd></div>
+      </dl>
+      <p class="urgence" data-en="Curanobilis is not an emergency service. If a life is at risk, call <b>144</b> immediately.">Curanobilis ne remplace pas les urgences. En cas d’urgence vitale, composez immédiatement le <b>144</b>.</p>
+    </aside>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span data-en="Physicians with FMH titles">Médecins porteurs d’un titre FMH</span>
+    <span data-en="State-registered nurses">Infirmières et infirmiers diplômés</span>
+    <span data-en="Cantonal practice authorisation">Autorisation cantonale de pratiquer</span>
+    <span data-en="Medical records hosted in Switzerland">Dossiers hébergés en Suisse</span>
+  </div>
+</div>
+
+<section id="prestations" class="wrap">
+  <div class="sec-grid">
+    <div class="rail"><p class="num">I</p><p class="cap" data-en="What we take on, at home or in the place you have chosen to stay.">Ce que nous prenons en charge, à domicile ou dans le lieu que vous avez choisi.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Services">Prestations</p>
+        <h2 data-en="Hospital-grade care, without the hospital.">Le niveau de l’hôpital, sans l’hôpital.</h2>
+        <p data-en="Everything a private practice, a home-care service and a care coordinator do — brought together under one physician who answers for the whole.">Tout ce que font un cabinet privé, un service de soins à domicile et un coordinateur — réunis sous la responsabilité d’un seul médecin, qui répond de l’ensemble.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <p class="tag" data-en="Consultation">Consultation</p>
+          <h3 data-en="The physician comes to you">Le médecin se déplace</h3>
+          <p data-en="At home, at the hotel or at the chalet. Full examination, prescriptions, laboratory samples taken on the spot, results within the day.">À la maison, à l’hôtel ou au chalet. Examen complet, ordonnances, prélèvements de laboratoire sur place, résultats dans la journée.</p>
+        </article>
+        <article class="svc">
+          <p class="tag" data-en="Nursing">Soins infirmiers</p>
+          <h3 data-en="Qualified nurses, day and night">Des infirmières, jour et nuit</h3>
+          <p data-en="Infusions, complex dressings, injections, post-operative monitoring, personal care. One to several visits a day, by the same team.">Perfusions, pansements complexes, injections, surveillance post-opératoire, soins d’hygiène. D’un à plusieurs passages par jour, par la même équipe.</p>
+        </article>
+        <article class="svc">
+          <p class="tag" data-en="Hospital at home">Hospitalisation à domicile</p>
+          <h3 data-en="Leaving the ward early, safely">Sortir plus tôt, sans risque</h3>
+          <p data-en="Medical bed, oxygen therapy, intravenous antibiotics, wound care. We take over from the ward the day you are discharged.">Lit médicalisé, oxygénothérapie, antibiothérapie intraveineuse, soins de plaies. Nous prenons le relais du service le jour de la sortie.</p>
+        </article>
+        <article class="svc">
+          <p class="tag" data-en="Coordination">Coordination</p>
+          <h3 data-en="Your medical diary, kept for you">Votre agenda médical, tenu pour vous</h3>
+          <p data-en="Appointments with specialists, transport, imaging slots, reminders, results gathered in one file you actually own.">Rendez-vous chez les spécialistes, transports, créneaux d’imagerie, rappels, résultats réunis dans un dossier qui vous appartient.</p>
+        </article>
+        <article class="svc">
+          <p class="tag" data-en="Second opinion">Second avis</p>
+          <h3 data-en="A diagnosis, read twice">Un diagnostic, relu</h3>
+          <p data-en="A file reviewed with the relevant specialist before an operation or a heavy treatment is agreed to. In writing, in plain language.">Un dossier repris avec le spécialiste concerné avant d’accepter une opération ou un traitement lourd. Par écrit, en langage clair.</p>
+        </article>
+        <article class="svc">
+          <p class="tag" data-en="Prevention">Prévention</p>
+          <h3 data-en="The annual check-up, in one day">Le bilan annuel, en une journée</h3>
+          <p data-en="Laboratory, cardiology and imaging arranged in a partner clinic in a single morning; the findings explained to you at home the same week.">Laboratoire, cardiologie et imagerie regroupés en une matinée dans une clinique partenaire ; restitution à domicile dans la semaine.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="complexes" class="band">
+  <div class="wrap sec-grid">
+    <div class="rail"><p class="num">II</p><p class="cap" data-en="When several conditions, several specialists and several treatments meet in one person.">Quand plusieurs maladies, plusieurs spécialistes et plusieurs traitements se croisent chez une même personne.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Complex cases">Cas complexes</p>
+        <h2 data-en="Someone has to hold the whole picture.">Quelqu’un doit tenir l’ensemble.</h2>
+        <p data-en="Three specialists, four prescriptions and two clinics rarely add up to one coherent treatment. Our work begins exactly there: reconciling what has been decided, removing what conflicts, and carrying a single plan.">Trois spécialistes, quatre ordonnances et deux cliniques ne forment que rarement un traitement cohérent. Notre travail commence précisément là : réconcilier ce qui a été décidé, retirer ce qui se contredit, et porter un plan unique.</p>
+      </div>
+      <ul class="cases">
+        <li data-en="Multiple chronic conditions">Polypathologie</li>
+        <li data-en="Outpatient oncology">Oncologie ambulatoire</li>
+        <li data-en="Major post-operative care">Post-opératoire lourd</li>
+        <li data-en="Neurodegenerative disease">Maladies neurodégénératives</li>
+        <li data-en="Palliative care at home">Soins palliatifs à domicile</li>
+        <li data-en="Repatriation and follow-up">Rapatriement et suite de traitement</li>
+      </ul>
+      <div class="repondant">
+        <div>
+          <h3 data-en="The responsible physician">Le médecin répondant</h3>
+          <p data-en="One physician, the same from beginning to end. They know the file without reopening it, sign the decisions, brief the specialists and answer when you call. You never explain your history twice.">Un médecin, le même du début à la fin. Il connaît le dossier sans le rouvrir, signe les décisions, briefe les spécialistes et répond quand vous appelez. Vous ne racontez jamais deux fois votre histoire.</p>
+        </div>
+        <div>
+          <h3 data-en="Around them, a fixed team">Autour de lui, une équipe fixe</h3>
+          <p data-en="A lead nurse present in the home, a coordinator handling appointments, transport and insurers, and a network of specialists brought to you or seen in a partner clinic.">Un infirmier référent présent au domicile, une coordinatrice qui traite rendez-vous, transports et assureurs, et un réseau de spécialistes qui se déplacent chez vous ou vous reçoivent en clinique partenaire.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="parcours" class="wrap">
+  <div class="sec-grid">
+    <div class="rail"><p class="num">III</p><p class="cap" data-en="From the first call to a stable arrangement. Nothing starts before you have agreed in writing.">Du premier appel au dispositif installé. Rien ne démarre avant votre accord écrit.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="How it works">Parcours</p>
+        <h2 data-en="Four steps, in this order.">Quatre étapes, dans cet ordre.</h2>
+      </div>
+      <ol class="steps">
+        <li><span class="idx">01</span>
+          <div><h3 data-en="First conversation">Premier entretien</h3>
+          <p data-en="Thirty minutes with a physician, confidential and without obligation. We listen to the situation and say plainly whether we are the right arrangement for it.">Trente minutes avec un médecin, confidentiel et sans engagement. Nous écoutons la situation et disons franchement si nous sommes le bon dispositif.</p>
+          <p class="meta" data-en="30 min · no charge">30 min · sans frais</p></div></li>
+        <li><span class="idx">02</span>
+          <div><h3 data-en="Assessment at home">Évaluation à domicile</h3>
+          <p data-en="A physician visits: history, current treatments, the home itself, the people around you. We leave with the file and the constraints written down.">Un médecin se rend chez vous : antécédents, traitements en cours, le logement lui-même, l’entourage. Nous repartons avec le dossier et les contraintes notées.</p>
+          <p class="meta" data-en="60–90 min · at home">60–90 min · à domicile</p></div></li>
+        <li><span class="idx">03</span>
+          <div><h3 data-en="Care plan and named team">Plan de soins et équipe nommée</h3>
+          <p data-en="Objectives, frequency of visits, the physician and nurses assigned by name, and a detailed budget. You sign, or you do not.">Objectifs, fréquence des passages, le médecin et les infirmiers désignés nommément, et un budget détaillé. Vous signez, ou non.</p>
+          <p class="meta" data-en="Written estimate within 48 h">Devis écrit sous 48 h</p></div></li>
+        <li><span class="idx">04</span>
+          <div><h3 data-en="Continuous follow-up">Suivi continu</h3>
+          <p data-en="Planned visits, a direct line to the physician, a written report after every intervention, and a review of the plan every six weeks.">Passages planifiés, ligne directe avec le médecin, compte rendu écrit après chaque intervention, révision du plan toutes les six semaines.</p>
+          <p class="meta" data-en="Review every 6 weeks">Révision toutes les 6 semaines</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="equipe" class="wrap">
+  <div class="sec-grid">
+    <div class="rail"><p class="num">IV</p><p class="cap" data-en="Four roles, named on your file from the first day.">Quatre rôles, nommés sur votre dossier dès le premier jour.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Your team">L’équipe</p>
+        <h2 data-en="You know exactly who is coming.">Vous savez exactement qui vient.</h2>
+        <p data-en="No rota of unfamiliar faces. The same people, recognised at the door, briefed on what happened yesterday.">Pas de tournus de visages inconnus. Les mêmes personnes, reconnues à la porte, informées de ce qui s’est passé la veille.</p>
+      </div>
+      <div class="team">
+        <div><h3 data-en="Responsible physician">Médecin répondant</h3><p data-en="Holds the diagnosis and the decisions. Reachable directly, without a switchboard.">Porte le diagnostic et les décisions. Joignable directement, sans standard.</p></div>
+        <div><h3 data-en="Lead nurse">Infirmier référent</h3><p data-en="Carries out the care plan at home and raises the alarm at the first deviation.">Exécute le plan de soins au domicile et alerte au moindre écart.</p></div>
+        <div><h3 data-en="Coordinator">Coordinatrice</h3><p data-en="Appointments, transport, laboratories, insurers, transmission of documents.">Rendez-vous, transports, laboratoires, assureurs, transmission des documents.</p></div>
+        <div><h3 data-en="Specialist network">Réseau de spécialistes</h3><p data-en="Cardiology, oncology, geriatrics, physiotherapy, psychology — called in as the file requires.">Cardiologie, oncologie, gériatrie, physiothérapie, psychologie — convoqués selon le dossier.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formules" class="wrap" style="padding-top:0">
+  <div class="sec-grid">
+    <div class="rail"><p class="num">V</p><p class="cap" data-en="Every fee is stated before anything is done. No invoice ever contains a surprise.">Chaque honoraire est annoncé avant l’acte. Aucune facture ne contient de surprise.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Engagement">Formules</p>
+        <h2 data-en="Three ways to work with us.">Trois manières de travailler avec nous.</h2>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <p class="price" data-en="Per visit">À l’acte</p>
+          <h3 data-en="Single intervention">Intervention ponctuelle</h3>
+          <p data-en="One visit for one precise need: an acute episode, a traveller far from their own physician, a treatment to be administered.">Une visite pour un besoin précis : un épisode aigu, un voyageur loin de son médecin, un traitement à administrer.</p>
+        </div>
+        <div class="plan feature">
+          <p class="price" data-en="Annual membership">Adhésion annuelle</p>
+          <h3 data-en="Continuous follow-up">Suivi continu</h3>
+          <p data-en="Your own physician all year: direct line, visits included, coordination of every specialist, annual check-up, medical file kept up to date.">Votre médecin toute l’année : ligne directe, visites incluses, coordination de tous les spécialistes, bilan annuel, dossier tenu à jour.</p>
+        </div>
+        <div class="plan">
+          <p class="price" data-en="On assessment">Sur évaluation</p>
+          <h3 data-en="Complex care">Prise en charge complexe</h3>
+          <p data-en="A bespoke arrangement: several visits a day if required, a dedicated team, equipment installed at home. Detailed estimate after the assessment.">Dispositif sur mesure : plusieurs passages par jour si nécessaire, équipe dédiée, matériel installé au domicile. Devis détaillé après l’évaluation.</p>
+        </div>
+      </div>
+      <p class="note" data-en="Our fees fall outside the basic insurance (LAMal). Part of the nursing care, equipment and prescribed treatments may be covered by your supplementary insurance — we prepare the statements and deal with the insurer on your behalf.">Nos honoraires ne relèvent pas de l’assurance de base (LAMal). Une partie des soins infirmiers, du matériel et des traitements prescrits peut être couverte par votre assurance complémentaire — nous préparons les décomptes et traitons avec l’assureur pour vous.</p>
+    </div>
+  </div>
+</section>
+
+<section id="discretion" class="wrap" style="padding-top:0">
+  <div class="sec-grid">
+    <div class="rail"><p class="num">VI</p><p class="cap" data-en="Discretion is not a courtesy here. It is part of the treatment.">La discrétion n’est pas une politesse. Elle fait partie du soin.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Confidentiality">Confidentialité</p>
+        <h2 data-en="Medical secrecy, without exception.">Le secret médical, sans exception.</h2>
+      </div>
+      <div class="privacy">
+        <div><h3 data-en="Bound by law">Astreints par la loi</h3><p data-en="Every physician and nurse working with us is bound by professional secrecy under article 321 of the Swiss Criminal Code. It survives the end of the engagement.">Chaque médecin et chaque infirmier qui travaille avec nous est soumis au secret professionnel au sens de l’art. 321 CP. Il survit à la fin de la prise en charge.</p></div>
+        <div><h3 data-en="Your file, in Switzerland">Votre dossier, en Suisse</h3><p data-en="Records are encrypted and hosted on Swiss territory, open only to the carers actually involved in your case. Nothing goes to a third party — your insurer included — without your written authorisation.">Les dossiers sont chiffrés et hébergés sur le territoire suisse, accessibles aux seuls soignants engagés dans votre situation. Rien ne part vers un tiers — assureur compris — sans votre autorisation écrite.</p></div>
+        <div><h3 data-en="Nothing on the doorbell">Rien sur la sonnette</h3><p data-en="We arrive without a marked vehicle, without a logo and without a plaque. Your neighbours, your staff and your visitors learn nothing from our presence.">Nous intervenons sans véhicule marqué, sans logo et sans plaque. Vos voisins, votre personnel et vos visiteurs n’apprennent rien de notre passage.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="soft">
+  <div class="wrap sec-grid">
+    <div class="rail"><p class="num">VII</p><p class="cap" data-en="A physician calls you back — within two working hours.">Un médecin vous rappelle — sous deux heures ouvrables.</p></div>
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow" data-en="Contact">Contact</p>
+        <h2 data-en="Tell us the situation.">Dites-nous la situation.</h2>
+        <p data-en="Write in a few lines what is happening and who it concerns. The first conversation is confidential, free of charge and commits you to nothing.">Écrivez en quelques lignes ce qui se passe et qui est concerné. Le premier entretien est confidentiel, gratuit et ne vous engage à rien.</p>
+      </div>
+      <div class="contact-grid">
+        <form id="demande" class="card" novalidate>
+          <div class="f2">
+            <label data-en="Name">Nom<input name="nom" type="text" autocomplete="name" required></label>
+            <label data-en="Telephone">Téléphone<input name="tel" type="tel" autocomplete="tel" required></label>
+          </div>
+          <div class="f2">
+            <label data-en="Email">Courriel<input name="email" type="email" autocomplete="email" required></label>
+            <label data-en="Town / canton">Localité / canton<input name="lieu" type="text"></label>
+          </div>
+          <label data-en="The situation">La situation<textarea name="message" data-en-ph="Who is concerned, what has been diagnosed, what is needed and by when." placeholder="Qui est concerné, ce qui a été diagnostiqué, ce dont vous avez besoin et pour quand."></textarea></label>
+          <p class="consent" data-en="By sending this form you agree that Curanobilis may contact you about your request. No medical data is required at this stage.">En envoyant ce formulaire, vous acceptez que Curanobilis vous contacte au sujet de votre demande. Aucune donnée médicale n’est requise à ce stade.</p>
+          <div><button class="btn" type="submit" data-en="Send the request">Envoyer la demande</button></div>
+        </form>
+        <aside class="coords">
+          <div><p class="k" data-en="Medical line, 24/7">Ligne médicale, 24/7</p><p class="v"><a href="tel:+41220000000">+41 22 000 00 00</a></p></div>
+          <div><p class="k">WhatsApp</p><p class="v"><a href="https://wa.me/41220000000" rel="noopener">+41 22 000 00 00</a><br><span class="note" data-en="For arranging matters. Nothing medical passes through this channel.">Pour convenir d’un rendez-vous. Rien de médical ne passe par ce canal.</span></p></div>
+          <div><p class="k" data-en="Email">Courriel</p><p class="v"><a href="mailto:contact@curanobilis.ch">contact@curanobilis.ch</a></p></div>
+          <div><p class="k" data-en="Consulting rooms">Cabinet</p><p class="v">Rue du Rhône 00<br>1204 Genève</p></div>
+          <div><p class="k" data-en="Coverage">Zones desservies</p><p class="v" data-en="Geneva · Vaud · Valais resorts · Zurich">Genève · Vaud · stations valaisannes · Zürich</p></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <p class="brand"><svg class="emblem" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.25" fill="none" stroke="currentColor" stroke-width=".7" opacity=".5"/><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"><path d="M24 11.5v7.5"/><path d="M24 29v7.5"/><path d="M11.5 24h7.5"/><path d="M29 24h7.5"/></g></svg><span class="mark">Cura<span>nobilis</span></span></p>
+      <p style="margin-top:10px" data-en="Private medicine at home. Physicians authorised to practise in their canton and listed in the federal MedReg register.">Médecine privée à domicile. Médecins au bénéfice d’une autorisation cantonale de pratiquer et inscrits au registre fédéral MedReg.</p>
+    </div>
+    <p data-en="Curanobilis is not an emergency service. In a life-threatening situation call 144 (ambulance) or 112. The information on this site does not constitute a medical consultation."><strong>Curanobilis ne remplace pas les urgences.</strong> En cas d’urgence vitale, appelez le 144 (ambulance) ou le 112. Les informations de ce site ne constituent pas une consultation médicale.</p>
+    <p data-en="© 2026 Curanobilis · Legal notice · Privacy policy (FADP)">© 2026 Curanobilis · Mentions légales · Politique de confidentialité (LPD)</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute("lang",l);
+    document.querySelectorAll("[data-en]").forEach(function(el){
+      if(el.dataset.fr===undefined){el.dataset.fr=el.innerHTML;}
+      el.innerHTML = (l==="en") ? el.dataset.en : el.dataset.fr;
+    });
+    document.querySelectorAll("[data-en-ph]").forEach(function(el){
+      if(el.dataset.frPh===undefined){el.dataset.frPh=el.placeholder;}
+      el.placeholder = (l==="en") ? el.dataset.enPh : el.dataset.frPh;
+    });
+    document.querySelectorAll("[data-lang]").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.dataset.lang===l));
+    });
+    try{localStorage.setItem("curanobilis-lang",l);}catch(e){}
+  }
+  document.querySelectorAll("[data-lang]").forEach(function(b){
+    b.addEventListener("click",function(){setLang(b.dataset.lang);});
+  });
+  var saved=null; try{saved=localStorage.getItem("curanobilis-lang");}catch(e){}
+  if(saved==="en"){setLang("en");}
+
+  var form=document.getElementById("demande");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var en = root.getAttribute("lang")==="en";
+    var box=document.createElement("div");
+    box.className="sent";
+    box.setAttribute("role","status");
+    box.innerHTML = en
+      ? "<b>Request received.</b>A physician calls you back within two working hours. If the situation cannot wait, call +41 22 000 00 00 — the line is answered day and night."
+      : "<b>Demande transmise.</b>Un médecin vous rappelle sous deux heures ouvrables. Si la situation ne peut pas attendre, appelez le +41 22 000 00 00 — la ligne est décrochée jour et nuit.";
+    form.replaceWith(box);
+    box.focus&&box.focus();
+  });
+})();
+</script>
+</body>
+</html>
