@@ -1,7 +1,7 @@
 # Curanobilis — site vitrine
 
 Page unique, autonome : tout le CSS et le JS sont dans `index.html`.
-Seule dépendance externe : les polices Google (Cormorant Garamond, Hanken Grotesk).
+Seule dépendance externe : la police Google Spectral (empattements, une seule famille pour toute la page).
 
 ## Voir la page
 
