@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Curanobilis — médecine privée à domicile en Suisse : consultations, soins infirmiers, coordination des spécialistes et prise en charge des cas complexes.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
@@ -198,6 +198,18 @@ footer{border-top:1px solid var(--line);padding-block:52px;background:var(--grou
 .foot .brand{margin-bottom:14px}
 .foot .mark{font-size:18px}
 .foot .emblem{width:30px;height:30px}
+/* barre d'appel fixe — téléphone uniquement */
+.callbar{display:none}
+@media (max-width:720px){
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:1px;background:var(--line);border-top:1px solid var(--hair);box-shadow:0 -10px 28px -18px rgba(16,27,42,.55);padding-bottom:env(safe-area-inset-bottom)}
+  .callbar a{display:grid;align-content:center;justify-items:center;gap:3px;min-height:64px;padding:10px 12px;line-height:1.25;text-decoration:none}
+  .mast .tel,.mast .wa{display:none}
+  .callbar-main{flex:1.7;background:var(--ink);color:var(--surface)}
+  .callbar-wa{flex:1;background:var(--surface);color:var(--ink);font-size:15.5px;font-weight:600;letter-spacing:.02em}
+  .cb-k{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.88}
+  .cb-n{font-size:17.5px;font-weight:600;font-variant-numeric:tabular-nums}
+  body{padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:960px){
   .hero-grid,.repondant,.foot,.reach{grid-template-columns:1fr}
@@ -209,9 +221,6 @@ footer{border-top:1px solid var(--line);padding-block:52px;background:var(--grou
   .mast .wrap{gap:16px;height:70px}
 }
 @media (max-width:540px){
-  .tel .k{display:none}
-  .tel .num{font-size:16px}
-  .wa{display:none}
   .mark{font-size:15px;letter-spacing:.18em}
   .steps li{grid-template-columns:1fr;gap:8px}
   .fiche{padding:26px 22px 22px}
@@ -482,6 +491,14 @@ footer{border-top:1px solid var(--line);padding-block:52px;background:var(--grou
     <p data-en="© 2026 Curanobilis · Legal notice · Privacy policy (FADP)">© 2026 Curanobilis · Mentions légales · Politique de confidentialité (LPD)</p>
   </div>
 </footer>
+
+<div class="callbar">
+  <a class="callbar-main" href="tel:+41220000000">
+    <span class="cb-k" data-en="Call the medical line">Appeler la ligne médicale</span>
+    <span class="cb-n">+41 22 000 00 00</span>
+  </a>
+  <a class="callbar-wa" href="https://wa.me/41220000000" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
 <script>
 (function(){
